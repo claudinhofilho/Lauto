@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MANT Fortaleza - Logo Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #041d52 0%, #020814 65%, #000 100%);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,255,0.2) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      text-align: center;
+      z-index: 2;
+      transform: scale(0.8);
+      animation: introZoom 2s ease forwards;
+    }
+
+    .mant {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .mant span {
+      font-size: 7rem;
+      font-weight: 900;
+      color: #f1f5ff;
+      letter-spacing: -8px;
+      opacity: 0;
+      transform: translateY(100px) rotateX(90deg);
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.4),
+        0 0 30px rgba(0,255,255,0.2);
+      animation: letterReveal 0.8s ease forwards;
+    }
+
+    .mant span:nth-child(1) { animation-delay: 0.3s; }
+    .mant span:nth-child(2) { animation-delay: 0.6s; }
+    .mant span:nth-child(3) { animation-delay: 0.9s; }
+    .mant span:nth-child(4) { animation-delay: 1.2s; }
+
+    .fortaleza {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fortalezaIn 1.2s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .fortaleza span {
+      display: inline-block;
+      animation: floatLetters 3s ease-in-out infinite;
+    }
+
+    .fortaleza span:nth-child(1)  { color: #ff914d; }
+    .fortaleza span:nth-child(2)  { color: #7ef7ff; }
+    .fortaleza span:nth-child(3)  { color: #9d7dff; }
+    .fortaleza span:nth-child(4)  { color: #ff914d; }
+    .fortaleza span:nth-child(5)  { color: #7ef7ff; }
+    .fortaleza span:nth-child(6)  { color: #9d7dff; }
+    .fortaleza span:nth-child(7)  { color: #ff914d; }
+    .fortaleza span:nth-child(8)  { color: #7ef7ff; }
+    .fortaleza span:nth-child(9)  { color: #9d7dff; }
+    .fortaleza span:nth-child(10) { color: #ff914d; }
+
+    .ring {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 3px solid rgba(0,255,255,0.5);
+      box-shadow:
+        0 0 30px rgba(0,255,255,0.6),
+        inset 0 0 30px rgba(0,255,255,0.3);
+      animation: rotateRing 12s linear infinite;
+    }
+
+    .particles span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 10px white;
+      animation: particles 8s linear infinite;
+      opacity: 0;
+    }
+
+    .particles span:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+    .particles span:nth-child(2) { top: 70%; left: 60%; animation-delay: 2s; }
+    .particles span:nth-child(3) { top: 40%; left: 75%; animation-delay: 4s; }
+    .particles span:nth-child(4) { top: 80%; left: 20%; animation-delay: 1s; }
+
+    @keyframes letterReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(100px) rotateX(90deg) scale(0.5);
+      }
+      70% {
+        opacity: 1;
+        transform: translateY(-10px) rotateX(0deg) scale(1.05);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotateX(0deg) scale(1);
+      }
+    }
+
+    @keyframes fortalezaIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+        filter: blur(0px);
+      }
+    }
+
+    @keyframes floatLetters {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    @keyframes rotateRing {
+      from { transform: rotate(0deg) scale(1); }
+      50%  { transform: rotate(180deg) scale(1.03); }
+      to   { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);    opacity: 0.6; }
+      50%       { transform: scale(1.15); opacity: 1; }
+    }
+
+    @keyframes particles {
+      0%   { transform: translateY(0px)    scale(0); opacity: 0; }
+      20%  { transform: translateY(-20px)  scale(1); opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateY(-120px) scale(0); opacity: 0; }
+    }
+
+    @keyframes introZoom {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .mant span {
+        font-size: 4rem;
+      }
+
+      .fortaleza {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+      }
+
+      .ring {
+        width: 340px;
+        height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="glow"></div>
+    <div class="ring"></div>
+
+    <div class="particles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="logo-wrapper">
+      <div class="mant">
+        <span>M</span>
+        <span>A</span>
+        <span>N</span>
+        <span>T</span>
+      </div>
+
+      <div class="fortaleza">
+        <span>F</span>
+        <span>O</span>
+        <span>R</span>
+        <span>T</span>
+        <span>A</span>
+        <span>L</span>
+        <span>E</span>
+        <span>Z</span>
+        <span>A</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
