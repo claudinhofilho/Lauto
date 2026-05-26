@@ -58,29 +58,30 @@
     }
 
     .mant span {
-      font-family: 'Bebas Neue', 'Montserrat', sans-serif;
-      font-size: 8rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7rem;
       font-weight: 900;
-      letter-spacing: 4px;
+      letter-spacing: -4px;
 
-      /* Degradê vertical idêntico ao logo original: branco → azul → escuro */
+      /* Degradê fiel ao logo original:
+         branco brilhante no topo (70% da altura),
+         prata-azulado no meio,
+         some levemente na base */
       background: linear-gradient(
         to bottom,
         #ffffff    0%,
-        #dce8ff   16%,
-        #9ab2e8   38%,
-        #3a52a8   60%,
-        #0e1b50   78%,
-        rgba(3, 8, 24, 0.35) 100%
+        #f8faff   30%,
+        #dde6f8   55%,
+        #a8b8d8   75%,
+        rgba(10, 18, 55, 0.55) 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
 
-      /* Brilho suave sem text-shadow (incompatível com background-clip) */
       filter:
-        drop-shadow(0 0 10px rgba(160, 190, 255, 0.7))
-        drop-shadow(0 0 28px rgba(80, 120, 255, 0.35));
+        drop-shadow(0 0 8px rgba(220, 235, 255, 0.8))
+        drop-shadow(0 0 22px rgba(180, 210, 255, 0.4));
 
       opacity: 0;
       transform: translateY(100px) rotateX(90deg);
